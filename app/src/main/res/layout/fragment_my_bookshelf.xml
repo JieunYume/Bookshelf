@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/edittext_round_corner">
+
+    <org.techtown.bookshelf.RoundImageView
+        android:id="@+id/myImage"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/default_profile" />
+
+    <TextView
+        android:id="@+id/userBookshelfTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/gangwon_bold"
+        android:text="TextView"
+        android:textColor="#486047"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/myImage"
+        app:layout_constraintStart_toEndOf="@+id/myImage"
+        app:layout_constraintTop_toTopOf="@+id/myImage" />
+
+    <ImageView
+        android:id="@+id/shelf2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myBookshelf"
+        app:srcCompat="@drawable/sunban" />
+
+    <ImageView
+        android:id="@+id/shelf1"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myImage"
+        app:srcCompat="@drawable/sunban" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myBookshelf"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
+        android:scrollbars="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/shelf2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shelf1"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/item_bookshelf" />
+
+    <ImageView
+        android:id="@+id/edit_myprofile"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@+id/userBookshelfTV"
+        app:layout_constraintTop_toTopOf="@+id/userBookshelfTV"
+        app:srcCompat="@drawable/pencil" />
+
+    <FrameLayout
+        android:id="@+id/frame_bookInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shelf2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
