@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import org.techtown.bookshelf.R;
-import org.techtown.bookshelf.user.MainActivity;
+import org.techtown.bookshelf.MainActivity;
 
 import java.util.ArrayList;
 

@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.techtown.bookshelf.R;
-import org.techtown.bookshelf.user.MainActivity;
+import org.techtown.bookshelf.MainActivity;
 
 import java.util.ArrayList;
 

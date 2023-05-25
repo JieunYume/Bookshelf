@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.techtown.bookshelf.R;
-import org.techtown.bookshelf.user.MainActivity;
+import org.techtown.bookshelf.MainActivity;
 import org.techtown.bookshelf.book.display.BookSelected;
 
 import java.util.ArrayList;

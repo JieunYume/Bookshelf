@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.techtown.bookshelf.R;
-import org.techtown.bookshelf.user.MainActivity;
+import org.techtown.bookshelf.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("user");

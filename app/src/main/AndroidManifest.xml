@@ -60,7 +60,7 @@
                 android:value="" />
         </activity>
         <activity android:name=".login.RegisterActivity" />
-        <activity android:name=".user.MainActivity" />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".book.search.BookSearchActivity"
             android:exported="false">

@@ -17,16 +17,13 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import org.techtown.bookshelf.R;
 import org.techtown.bookshelf.RoundImageView;
-import org.techtown.bookshelf.user.MainActivity;
+import org.techtown.bookshelf.MainActivity;
 import org.techtown.bookshelf.book.display.BookSelected;
 import org.techtown.bookshelf.book.display.adapter.FriendBookshelfAdapter;
 

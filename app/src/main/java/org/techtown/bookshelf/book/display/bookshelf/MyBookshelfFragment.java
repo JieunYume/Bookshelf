@@ -29,7 +29,7 @@ import com.google.firebase.storage.StorageReference;
 import org.techtown.bookshelf.R;
 import org.techtown.bookshelf.RoundImageView;
 import org.techtown.bookshelf.user.UserProfileActivity;
-import org.techtown.bookshelf.user.MainActivity;
+import org.techtown.bookshelf.MainActivity;
 import org.techtown.bookshelf.book.display.adapter.MyBookshelfAdapter;
 
 public class MyBookshelfFragment extends Fragment {
@@ -97,7 +97,7 @@ public class MyBookshelfFragment extends Fragment {
     private void dispMyProfile(ViewGroup rootView) {
         myImage=rootView.findViewById(R.id.myImage);
         userBookshelfTV =rootView.findViewById(R.id.userBookshelfTV);
-        loadMyImage();
+        loadMyImage(myImage);
 
         userBookshelfTV.setText(UserId+"'s BOOKSHELF");
     }
@@ -106,7 +106,7 @@ public class MyBookshelfFragment extends Fragment {
         ((MainActivity) MainActivity.mContext).readBookData(UserId, myBookshelfAdapter);
     }
 
-    public void loadMyImage() {
+    public void loadMyImage(RoundImageView myImage) {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageReference = storage.getReference();
         StorageReference pathReference = storageReference.child("ProfileImage/"+UserId);
@@ -123,7 +123,7 @@ public class MyBookshelfFragment extends Fragment {
                             .placeholder(R.drawable.icon_search)
                             .error(R.drawable.ic_launcher_foreground)
                             .into(myImage);
-                    myImage.setRectRadius(20f);
+                    //myImage.setRectRadius(20f);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -142,7 +142,7 @@ public class MyBookshelfFragment extends Fragment {
             case 1: // 프로필 수정
                 if (resultCode == RESULT_OK) {
                     Toast.makeText(getActivity(), "프로필이 수정되었습니다!", Toast.LENGTH_SHORT).show();
-                    loadMyImage();
+                    loadMyImage(myImage);
 
                 } else {
                 }

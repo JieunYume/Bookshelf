@@ -1,4 +1,4 @@
-package org.techtown.bookshelf.user;
+package org.techtown.bookshelf;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,7 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import org.techtown.bookshelf.R;
 import org.techtown.bookshelf.book.display.adapter.BookShelfAdapter;
 import org.techtown.bookshelf.book.display.bookinfo.FriendBookFragment;
 import org.techtown.bookshelf.book.display.bookinfo.MyBookFragment;
@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView bookShelfRecyclerView;
     Fragment bookFragment;
 
+
+    RoundImageView myImage2;
+    TextView myId2;
     //친구목록
     RecyclerView friendRecyclerView;
     FriendAdapter friendAdapter;
@@ -100,6 +103,20 @@ public class MainActivity extends AppCompatActivity {
         ft = fm.beginTransaction();
         ft.add(R.id.frame_bookshelf, myBookshelfFragment);
         ft.commitNow();
+
+        myImage2=findViewById(R.id.myImage2);
+        myBookshelfFragment.loadMyImage(myImage2);
+        myImage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft = fm.beginTransaction(); // FragmentTransaction을 다시 정의해줘야 한다!
+                ft.replace(R.id.frame_bookshelf, MyBookshelfFragment.newInstance(UserId));
+                ft.commit();
+            }
+        });
+
+        myId2 = findViewById(R.id.myId2);
+        myId2.setText(UserId);
 
         //친구목록 뿌리기
         dispFriendProfile();

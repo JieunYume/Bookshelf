@@ -33,7 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.techtown.bookshelf.R;
-import org.techtown.bookshelf.user.MainActivity;
+import org.techtown.bookshelf.MainActivity;
 import org.techtown.bookshelf.book.display.BookSelected;
 import org.techtown.bookshelf.camera.CameraActivity;
 import org.techtown.bookshelf.record.Record;

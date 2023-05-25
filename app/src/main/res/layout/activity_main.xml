@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#C3CCBB"
     android:orientation="vertical"
-    tools:context=".user.MainActivity">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/main_bar"
@@ -48,7 +48,8 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginLeft="5dp"
@@ -56,42 +57,76 @@
         android:background="@drawable/layout_background"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/myprofile"
+
+        <org.techtown.bookshelf.RoundImageView
+            android:id="@+id/myImage2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/default_profile" />
+
+        <TextView
+            android:id="@+id/myId2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="3dp"
-            android:orientation="vertical">
+            android:layout_marginTop="1dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/gangwon_bold"
+            android:maxLines="1"
+            android:text="id"
+            android:textColor="#486047"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/myImage2"
+            app:layout_constraintStart_toStartOf="@+id/myImage2"
+            app:layout_constraintTop_toBottomOf="@+id/myImage2" />
 
-        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="3dp"
+            android:layout_height="0dp"
+            android:background="@color/appColorLightGreen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/friendRecyclerView"
+            app:layout_constraintStart_toEndOf="@+id/myImage2"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/friendRecyclerView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginLeft="3dp"
-            android:layout_weight="10"
-            android:scrollbars="horizontal" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/myId2"
+            app:layout_constraintEnd_toStartOf="@+id/menu_burger"
+            app:layout_constraintStart_toEndOf="@+id/myImage2"
+            app:layout_constraintTop_toTopOf="@+id/myImage2"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
             android:id="@+id/menu_burger"
             android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="3dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/add_friend"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/friend" />
 
         <ImageView
             android:id="@+id/add_friend"
             android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center|right"
-            android:layout_margin="3dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/plus" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/mainScrollView"
