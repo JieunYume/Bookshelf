@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/src/main/res/font/gangwon_bold.ttf
+/app/src/main/res/font/gangwon_light.ttf
+/app/src/main/res/font/jejudoldam.ttf
