@@ -123,7 +123,6 @@ public class SearchFriendActivity extends AppCompatActivity {
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(getApplicationContext(), "이미지를 불러오는 데 실패했습니다.", Toast.LENGTH_LONG).show();
                                         userList.add(new Friend(user_id, ((MainActivity)MainActivity.mContext).default_image_uri));
                                     }
                                 });

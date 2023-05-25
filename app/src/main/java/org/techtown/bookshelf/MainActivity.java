@@ -165,7 +165,8 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
         Toast.makeText(this, FriendId, Toast.LENGTH_SHORT).show();
     }
-    //친구 데이터 뿌리기(1번레이아웃)
+
+    //홈 상단 친구목록 데이터 읽어오기(1번레이아웃)
     public void dispFriendProfile() {
         friendRecyclerView = (RecyclerView) findViewById(R.id.friendRecyclerView);
         friendAdapter = new FriendAdapter(); //어답터 초기화
@@ -182,15 +183,20 @@ public class MainActivity extends AppCompatActivity {
                         StorageReference storageReference = storage.getReference();
                         StorageReference pathReference = storageReference.child("ProfileImage/" + friend_id);
                         if (pathReference == null) {
-                            mfriendItems.add(new Friend(friend_id, default_image_uri));
-                            Log.e("friend_id", friend_id);
-                            friendAdapter.setFriendList(mfriendItems);
+                            Log.e("오류", "저장소 폴더 오류");
                         } else {
                             StorageReference submitProfile = storageReference.child("ProfileImage/" + friend_id + "/1.png");
                             submitProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     mfriendItems.add(new Friend(friend_id, uri));
+                                    friendAdapter.setFriendList(mfriendItems);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    mfriendItems.add(new Friend(friend_id, default_image_uri));
+                                    Toast.makeText(getApplicationContext(), friend_id, Toast.LENGTH_LONG).show();
                                     friendAdapter.setFriendList(mfriendItems);
                                 }
                             });

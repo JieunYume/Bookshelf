@@ -1,6 +1,9 @@
 package org.techtown.bookshelf.login;
 
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -68,21 +71,6 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        storage = FirebaseStorage.getInstance();
-        StorageReference storageReference = storage.getReference();
-        StorageReference submitProfile=storageReference.child("ProfileImage/default_profile.png");
-        submitProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                default_image_uri=uri;
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "디폴트 이미지를 불러오는 데 실패했습니다.", Toast.LENGTH_LONG).show();                                    }
-        });
-
     }
 
     private void id_check() {
@@ -154,25 +142,9 @@ public class RegisterActivity extends AppCompatActivity {
                     firebaseDatabase.getReference("user").child(UserId).child("join_date").setValue(joinDate.toString());
                     firebaseDatabase.getReference("user").child(UserId).child("password").setValue(UserPwd);
 
-                    StorageReference storageReference = storage.getReference();
-                    StorageReference riversReference = storageReference.child("ProfileImage/"+UserId+"/1.png");
-                    UploadTask uploadTask = riversReference.putFile(default_image_uri);
-                    uploadTask.addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(RegisterActivity.this, "업로드 실패!", Toast.LENGTH_LONG).show();
-                        }
-                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(RegisterActivity.this, "업로드 성공!", Toast.LENGTH_LONG).show();
-
-                            Toast.makeText(getApplicationContext(), String.format("%s님 가입을 환영합니다.", UserId), Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                            startActivity(intent);
-
-                        }
-                    });
+                    Toast.makeText(getApplicationContext(), String.format("%s님 가입을 환영합니다.", UserId), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                     dialog = builder.setMessage("비밀번호가 동일하지 않습니다.").setNegativeButton("확인", null).create();

@@ -112,7 +112,6 @@ public class MyBookshelfFragment extends Fragment {
         StorageReference pathReference = storageReference.child("ProfileImage/"+UserId);
         if (pathReference == null) {
             Toast.makeText(getActivity(), "저장소에 사진이 없습니다.", Toast.LENGTH_LONG).show();
-
         } else{
             StorageReference submitProfile=storageReference.child("ProfileImage/"+UserId+"/1.png");
             submitProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -128,8 +127,10 @@ public class MyBookshelfFragment extends Fragment {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(getActivity(), "이미지를 불러오는 데 실패했습니다.", Toast.LENGTH_LONG).show();
-
+                    Glide.with(myImage)
+                            .load(R.drawable.default_profile)
+                            .placeholder(R.drawable.icon_search)
+                            .into(myImage);
                 }
             });
         }
