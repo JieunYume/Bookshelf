@@ -12,7 +12,7 @@
 
 ## 기능
 1. 로그인/회원가입
-https://github.com/user-attachments/assets/10b735d6-58e1-4c53-8e7b-20689ccc015c
+https://github.com/user-attachments/assets/22e447b1-0307-453d-93b0-6aaa614ed96d
 
 2. 책 찾기
 https://github.com/user-attachments/assets/e2be67e8-7470-43b7-b112-756b0076d10e
