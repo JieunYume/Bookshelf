@@ -12,14 +12,29 @@
 
 ## 기능
 1. 로그인/회원가입
-https://github.com/user-attachments/assets/22e447b1-0307-453d-93b0-6aaa614ed96d
+
+
+
+https://github.com/user-attachments/assets/6feda66f-cf7c-4c2b-9f08-b9d898aa6ddb
+
 
 2. 책 찾기
-https://github.com/user-attachments/assets/e2be67e8-7470-43b7-b112-756b0076d10e
+
+
+https://github.com/user-attachments/assets/4253dd1c-244f-4428-addb-f1c36eb1c189
+
+
 
 3. 나의 Bookshelf 및 기록 추가
-https://github.com/user-attachments/assets/a577efb5-4a4d-499b-ba42-f547921a9077
+
+
+https://github.com/user-attachments/assets/dedf07d0-49eb-4b6b-a6ec-e8027e223342
+
+
 
 4. 친구의 Bookshelf
-https://github.com/user-attachments/assets/76363ccb-148c-4c72-bf58-820b0051385e
+
+
+
+https://github.com/user-attachments/assets/a6f41575-5e99-455f-8ec3-33b09115a11e
 
